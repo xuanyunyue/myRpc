@@ -33,6 +33,8 @@
 
         <module>my-server</module>
         <module>my-client</module>
+        <module>rpc-framework-simple</module>
+        <module>rpc-framework-common</module>
     </modules>
     <dependencies>
         <!-- lombok -->
