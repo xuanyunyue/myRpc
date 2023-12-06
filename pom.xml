@@ -6,6 +6,7 @@
 
     <groupId>github.xuanyunyue</groupId>
     <artifactId>myRPC</artifactId>
+    <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
@@ -30,6 +31,8 @@
     </properties>
     <modules>
 
+        <module>my-server</module>
+        <module>my-client</module>
     </modules>
     <dependencies>
         <!-- lombok -->
