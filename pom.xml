@@ -28,6 +28,8 @@
         <protostuff.version>1.7.2</protostuff.version>
         <!--hessian-->
         <hessian.version>4.0.65</hessian.version>
+        <!--        StringUtils-->
+        <commons-lang3.version>3.14.0</commons-lang3.version>
     </properties>
     <modules>
 
@@ -76,6 +78,12 @@
             <artifactId>junit-platform-runner</artifactId>
             <version>${junit.platform.version}</version>
             <scope>test</scope>
+        </dependency>
+<!--        StringUtils-->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>${commons-lang3.version}</version>
         </dependency>
     </dependencies>
     <build>
