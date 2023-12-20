@@ -1,5 +1,11 @@
-package github.xuanyunyue.remoting.netty;
+package github.xuanyunyue.remoting.netty.server;
 
+import factory.SingletonFactory;
+import github.xuanyunyue.config.RPCServiceConfig;
+import github.xuanyunyue.provider.Impl.ZkServiceProviderImpl;
+import github.xuanyunyue.provider.ServiceProvider;
+import github.xuanyunyue.remoting.netty.codec.RPCMessageDecoder;
+import github.xuanyunyue.remoting.netty.codec.RPCMessageEncoder;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelInitializer;
@@ -14,20 +20,24 @@ import io.netty.handler.timeout.IdleStateHandler;
 import io.netty.util.concurrent.DefaultEventExecutorGroup;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import utils.concurrent.threadpool.ThreadPoolFactory;
 
 import java.net.InetSocketAddress;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
 @Slf4j
 @Component
 public class NettyServer {
-    private static final int PORT = 9998;
+    public static final int PORT = 9998;
     private static final String HOST = "127.0.0.1";
+
+    private final ServiceProvider serviceProvider = SingletonFactory.getInstance(ZkServiceProviderImpl.class);
+
+    //注册方法到provider到zk上
+    public void registerService(RPCServiceConfig rpcServiceConfig) {
+        serviceProvider.publishService(rpcServiceConfig);
+    }
 
     @SneakyThrows
     public void start() {
@@ -68,11 +78,11 @@ public class NettyServer {
                             //              2. x秒没有写时，就发送一个心跳检测包检测是否连接
                             //              3. x秒没有读or写时，就发送一个心跳检测包检测是否连接
                             pipeline.addLast(new IdleStateHandler(30, 0, 0, TimeUnit.SECONDS));
-                            //                        出站的编码器
-                            pipeline.addLast();
-                            //                        入站的解码器
-                            pipeline.addLast();
-                            //                        处理自己的业务，同时加上先前创建好的线程池
+                            //出站的编码器
+                            pipeline.addLast(new RPCMessageEncoder());
+                            //入站的解码器
+                            pipeline.addLast(new RPCMessageDecoder());
+                            //处理自己的业务，同时加上先前创建好的线程池
                             pipeline.addLast(serverHandlerGroup,new NettyServerHandler() );
                         }
                     });
@@ -80,7 +90,7 @@ public class NettyServer {
 //        等待服务端监听端口关闭
             channelFuture.channel().closeFuture().sync();
         } catch (InterruptedException e) {
-            log.error("there is an error on github.xuanyunyue.remoting.netty.NettyServer's start");
+            log.error("there is an error on github.xuanyunyue.remoting.netty.server.NettyServer's start");
         } finally {
             log.error("Netty's server has shutdown");
             bossGroup.shutdownGracefully();

@@ -30,5 +30,7 @@ public class RPCRequest implements Serializable {
     private String version;
 //    处理一个接口有多个类实现的情况？
     private String group;
-
+    public String getRPCServiceName() {
+        return this.getInterfaceName() + this.getGroup() + this.getVersion();
+    }
 }

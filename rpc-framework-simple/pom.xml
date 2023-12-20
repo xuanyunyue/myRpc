@@ -17,7 +17,7 @@
     </properties>
 
     <dependencies>
-<!--        其他模块的依赖-->
+        <!--其他模块的依赖-->
         <dependency>
             <groupId>github.xuanyunyue</groupId>
             <artifactId>rpc-framework-common</artifactId>
@@ -25,18 +25,37 @@
             <scope>compile</scope>
         </dependency>
 
-<!--        netty-->
+        <!--Kryo-->
+        <dependency>
+            <groupId>com.esotericsoftware</groupId>
+            <artifactId>kryo</artifactId>
+            <version>${kryo.version}</version>
+        </dependency>
+
+        <!--netty-->
         <dependency>
             <groupId>io.netty</groupId>
             <artifactId>netty-all</artifactId>
             <version>${netty.version}</version>
         </dependency>
 
-<!--        spring-->
+        <!--spring-->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
             <version>${spring.version}</version>
+        </dependency>
+
+    <!--    zookeeper-->
+        <dependency>
+            <groupId>org.apache.curator</groupId>
+            <artifactId>curator-framework</artifactId>
+            <version>${curator-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.curator</groupId>
+            <artifactId>curator-recipes</artifactId>
+            <version>${curator-version}</version>
         </dependency>
     </dependencies>
 
