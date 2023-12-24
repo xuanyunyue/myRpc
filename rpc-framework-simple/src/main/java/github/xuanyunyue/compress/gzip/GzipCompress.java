@@ -1,6 +1,6 @@
-package github.xuanyunyue.remoting.compress.gzip;
+package github.xuanyunyue.compress.gzip;
 
-import github.xuanyunyue.remoting.compress.Compress;
+import github.xuanyunyue.compress.Compress;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;

@@ -1,11 +1,12 @@
-package github.xuanyunyue.remoting.netty.server;
+package github.xuanyunyue.remoting.transport.netty.server;
 
 import factory.SingletonFactory;
+import github.xuanyunyue.config.CustomShutdownHook;
 import github.xuanyunyue.config.RPCServiceConfig;
 import github.xuanyunyue.provider.Impl.ZkServiceProviderImpl;
 import github.xuanyunyue.provider.ServiceProvider;
-import github.xuanyunyue.remoting.netty.codec.RPCMessageDecoder;
-import github.xuanyunyue.remoting.netty.codec.RPCMessageEncoder;
+import github.xuanyunyue.remoting.transport.netty.codec.RPCMessageDecoder;
+import github.xuanyunyue.remoting.transport.netty.codec.RPCMessageEncoder;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelInitializer;
@@ -42,6 +43,7 @@ public class NettyServer {
     @SneakyThrows
     public void start() {
         //关闭所有客户端连接...
+        CustomShutdownHook.getCustomShutdownHook().clearAll();
 
         //server-bootstrap的准备
         NioEventLoopGroup bossGroup = new NioEventLoopGroup(1);
@@ -83,11 +85,11 @@ public class NettyServer {
                             //入站的解码器
                             pipeline.addLast(new RPCMessageDecoder());
                             //处理自己的业务，同时加上先前创建好的线程池
-                            pipeline.addLast(serverHandlerGroup,new NettyServerHandler() );
+                            pipeline.addLast(serverHandlerGroup, new NettyServerHandler());
                         }
                     });
             ChannelFuture channelFuture = serverBootstrap.bind(new InetSocketAddress(HOST, PORT));
-//        等待服务端监听端口关闭
+            //待服务端监听端口关闭
             channelFuture.channel().closeFuture().sync();
         } catch (InterruptedException e) {
             log.error("there is an error on github.xuanyunyue.remoting.netty.server.NettyServer's start");

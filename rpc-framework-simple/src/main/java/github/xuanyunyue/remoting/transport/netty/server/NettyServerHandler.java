@@ -1,4 +1,4 @@
-package github.xuanyunyue.remoting.netty.server;
+package github.xuanyunyue.remoting.transport.netty.server;
 
 import enums.CompressTypeEnum;
 import enums.RPCResponseCodeEnum;

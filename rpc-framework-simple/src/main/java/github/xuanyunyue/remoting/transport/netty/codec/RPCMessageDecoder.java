@@ -1,4 +1,4 @@
-package github.xuanyunyue.remoting.netty.codec;
+package github.xuanyunyue.remoting.transport.netty.codec;
 
 /**
  * @author： zyx1128
@@ -9,7 +9,7 @@ package github.xuanyunyue.remoting.netty.codec;
 import enums.CompressTypeEnum;
 import enums.SerializationTypeEnum;
 import extension.ExtensionLoader;
-import github.xuanyunyue.remoting.compress.Compress;
+import github.xuanyunyue.compress.Compress;
 import github.xuanyunyue.remoting.constants.RPCConstants;
 import github.xuanyunyue.remoting.dto.RPCMessage;
 import github.xuanyunyue.remoting.dto.RPCRequest;

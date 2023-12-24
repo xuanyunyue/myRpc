@@ -6,7 +6,7 @@ import extension.ExtensionLoader;
 import github.xuanyunyue.config.RPCServiceConfig;
 import github.xuanyunyue.provider.ServiceProvider;
 import github.xuanyunyue.registry.ServiceRegistry;
-import github.xuanyunyue.remoting.netty.server.NettyServer;
+import github.xuanyunyue.remoting.transport.netty.server.NettyServer;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.ObjectUtils;
 

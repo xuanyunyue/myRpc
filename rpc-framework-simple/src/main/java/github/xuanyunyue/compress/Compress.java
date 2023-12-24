@@ -1,4 +1,4 @@
-package github.xuanyunyue.remoting.compress;
+package github.xuanyunyue.compress;
 
 import extension.SPI;
 
