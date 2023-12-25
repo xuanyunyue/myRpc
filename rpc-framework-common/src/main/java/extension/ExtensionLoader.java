@@ -27,13 +27,18 @@ import static java.nio.charset.StandardCharsets.UTF_8;
 public final class ExtensionLoader<T> {
 
     private static final String SERVICE_DIRECTORY = "META-INF/extensions/";
-    //存放class-->类加载器
+
+    //存放class-->类加载器，也就是缓存
     private static final Map<Class<?>, ExtensionLoader<?>> EXTENSION_LOADERS = new ConcurrentHashMap<>();
+
     //存放class-->类实例
     private static final Map<Class<?>, Object> EXTENSION_INSTANCES = new ConcurrentHashMap<>();
 
+    // 接口
     private final Class<?> type;
     private final Map<String, Holder<Object>> cachedInstances = new ConcurrentHashMap<>();
+
+    // 自适应扩展实例的缓存
     private final Holder<Map<String, Class<?>>> cachedClasses = new Holder<>();
 
     private ExtensionLoader(Class<?> type) {

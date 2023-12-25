@@ -1,0 +1,1 @@
+loadBalance=github.xuanyunyue.loadBalance.loadBlanceImpl.ConsistentHashLoadBalance

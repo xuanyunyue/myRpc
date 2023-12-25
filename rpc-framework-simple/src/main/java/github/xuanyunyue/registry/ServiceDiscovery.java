@@ -1,5 +1,6 @@
 package github.xuanyunyue.registry;
 
+import extension.SPI;
 import github.xuanyunyue.remoting.dto.RPCRequest;
 
 import java.net.InetSocketAddress;
@@ -9,6 +10,7 @@ import java.net.InetSocketAddress;
  * @create： 2023/12/17 16:02
  * @description：TODO
  */
+@SPI
 public interface ServiceDiscovery {
     InetSocketAddress lookupService(RPCRequest rpcRequest);
 }

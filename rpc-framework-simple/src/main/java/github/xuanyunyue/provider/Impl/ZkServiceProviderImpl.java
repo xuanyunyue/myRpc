@@ -1,6 +1,7 @@
 package github.xuanyunyue.provider.Impl;
 
 import enums.RPCErrorMessageEnum;
+import enums.ServiceRegistryEnum;
 import exception.RPCException;
 import extension.ExtensionLoader;
 import github.xuanyunyue.config.RPCServiceConfig;
@@ -38,7 +39,7 @@ public class ZkServiceProviderImpl implements ServiceProvider {
     public ZkServiceProviderImpl() {
         serviceMap = new ConcurrentHashMap<>();
         registeredService = ConcurrentHashMap.newKeySet();
-        serviceRegistry = ExtensionLoader.getExtensionLoader(ServiceRegistry.class).getExtension("ServiceRegistryEnum.ZK.getName()");
+        serviceRegistry = ExtensionLoader.getExtensionLoader(ServiceRegistry.class).getExtension(ServiceRegistryEnum.ZK.getName());
     }
 
     //将服务添加到上面的set和map里,而不是zk里

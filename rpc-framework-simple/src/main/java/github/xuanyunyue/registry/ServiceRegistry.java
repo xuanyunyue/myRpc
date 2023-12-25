@@ -1,5 +1,7 @@
 package github.xuanyunyue.registry;
 
+import extension.SPI;
+
 import java.net.InetSocketAddress;
 
 /**
@@ -7,6 +9,7 @@ import java.net.InetSocketAddress;
  * @create： 2023/12/17 16:03
  * @description：TODO
  */
+@SPI
 public interface ServiceRegistry {
     void registerService(String rpcServiceName, InetSocketAddress inetSocketAddress);
 }
