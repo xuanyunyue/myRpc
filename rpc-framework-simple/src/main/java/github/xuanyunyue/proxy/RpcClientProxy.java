@@ -12,6 +12,7 @@ import org.apache.commons.lang3.StringUtils;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
+import java.lang.reflect.Proxy;
 import java.util.UUID;
 import java.util.concurrent.CompletableFuture;
 
@@ -71,5 +72,13 @@ public class RpcClientProxy implements InvocationHandler {
             throw new RPCException(RPCErrorMessageEnum.SERVICE_INVOCATION_FAILURE,"接口名称:" + rpcRequest.getInterfaceName());
         }
 
+    }
+
+    /**
+     * get the proxy object
+     */
+    @SuppressWarnings("unchecked")
+    public <T> T getProxy(Class<T> clazz) {
+        return (T) Proxy.newProxyInstance(clazz.getClassLoader(), new Class<?>[]{clazz}, this);
     }
 }
