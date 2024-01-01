@@ -1,1 +1,1 @@
-kyro=github.xuanyunyue.serialize.kryo
+kyro=github.xuanyunyue.serialize.kryo.KryoSerializer

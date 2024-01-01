@@ -1,6 +1,6 @@
 package github.xuanyunyue.remoting.transport.netty.server;
 
-import factory.SingletonFactory;
+import github.xuanyunyue.factory.SingletonFactory;
 import github.xuanyunyue.config.CustomShutdownHook;
 import github.xuanyunyue.config.RPCServiceConfig;
 import github.xuanyunyue.provider.Impl.ZkServiceProviderImpl;
@@ -22,16 +22,25 @@ import io.netty.util.concurrent.DefaultEventExecutorGroup;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
-import utils.concurrent.threadpool.ThreadPoolFactory;
+import github.xuanyunyue.utils.concurrent.threadpool.ThreadPoolFactory;
 
+import java.net.InetAddress;
 import java.net.InetSocketAddress;
+import java.net.UnknownHostException;
 import java.util.concurrent.TimeUnit;
 
 @Slf4j
 @Component
 public class NettyServer {
+    static {
+        try {
+            HOST = InetAddress.getLocalHost().getHostAddress();
+        } catch (UnknownHostException e) {
+            throw new RuntimeException(e);
+        }
+    }
     public static final int PORT = 9998;
-    private static final String HOST = "127.0.0.1";
+    private static final String HOST;
 
     private final ServiceProvider serviceProvider = SingletonFactory.getInstance(ZkServiceProviderImpl.class);
 

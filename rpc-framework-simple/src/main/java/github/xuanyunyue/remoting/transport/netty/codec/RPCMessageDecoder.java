@@ -6,9 +6,9 @@ package github.xuanyunyue.remoting.transport.netty.codec;
  * @description：TODO
  */
 
-import enums.CompressTypeEnum;
-import enums.SerializationTypeEnum;
-import extension.ExtensionLoader;
+import github.xuanyunyue.enums.CompressTypeEnum;
+import github.xuanyunyue.enums.SerializationTypeEnum;
+import github.xuanyunyue.extension.ExtensionLoader;
 import github.xuanyunyue.compress.Compress;
 import github.xuanyunyue.remoting.constants.RPCConstants;
 import github.xuanyunyue.remoting.dto.RPCMessage;

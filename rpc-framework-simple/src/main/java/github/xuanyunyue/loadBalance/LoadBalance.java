@@ -1,6 +1,6 @@
 package github.xuanyunyue.loadBalance;
 
-import extension.SPI;
+import github.xuanyunyue.extension.SPI;
 import github.xuanyunyue.remoting.dto.RPCRequest;
 
 import java.util.List;

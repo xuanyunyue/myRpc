@@ -1,10 +1,10 @@
 package github.xuanyunyue.remoting.transport.netty.client;
 
-import enums.CompressTypeEnum;
-import enums.SerializationTypeEnum;
-import enums.ServiceDiscoveryEnum;
-import extension.ExtensionLoader;
-import factory.SingletonFactory;
+import github.xuanyunyue.enums.CompressTypeEnum;
+import github.xuanyunyue.enums.SerializationTypeEnum;
+import github.xuanyunyue.enums.ServiceDiscoveryEnum;
+import github.xuanyunyue.extension.ExtensionLoader;
+import github.xuanyunyue.factory.SingletonFactory;
 import github.xuanyunyue.registry.ServiceDiscovery;
 import github.xuanyunyue.remoting.constants.RPCConstants;
 import github.xuanyunyue.remoting.dto.RPCMessage;
@@ -93,6 +93,7 @@ public class NettyClient implements SendRequest {
                 log.info("The client has connected [{}] successful!", serverAddress.toString());
                 completableFuture.complete(future.channel());
             } else {
+                System.out.println(future.cause().getMessage());
                 throw new IllegalStateException();
             }
         });
@@ -116,7 +117,7 @@ public class NettyClient implements SendRequest {
                 .compress(CompressTypeEnum.GZIP.getCode())
                 .data(rpcRequest).build();
         // 向channel发送消息
-        channel.writeAndFlush(rpcRequest).addListener((ChannelFutureListener) future -> {
+        channel.writeAndFlush(rpcMessage).addListener((ChannelFutureListener) future -> {
             if (!future.isSuccess()) {
                 future.channel().close();
                 resultFuture.completeExceptionally(future.cause());

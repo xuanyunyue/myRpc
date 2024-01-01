@@ -1,6 +1,6 @@
 package github.xuanyunyue.registry;
 
-import extension.SPI;
+import github.xuanyunyue.extension.SPI;
 
 import java.net.InetSocketAddress;
 

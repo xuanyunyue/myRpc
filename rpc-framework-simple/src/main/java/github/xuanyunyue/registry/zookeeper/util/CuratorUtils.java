@@ -1,6 +1,6 @@
 package github.xuanyunyue.registry.zookeeper.util;
 
-import enums.RPCConfigEnum;
+import github.xuanyunyue.enums.RPCConfigEnum;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.curator.RetryPolicy;
 import org.apache.curator.framework.CuratorFramework;
@@ -10,7 +10,7 @@ import org.apache.curator.framework.recipes.cache.PathChildrenCache;
 import org.apache.curator.framework.recipes.cache.PathChildrenCacheListener;
 import org.apache.curator.retry.ExponentialBackoffRetry;
 import org.apache.zookeeper.CreateMode;
-import utils.PropertiesFileUtil;
+import github.xuanyunyue.utils.PropertiesFileUtil;
 
 import java.net.InetSocketAddress;
 import java.util.List;

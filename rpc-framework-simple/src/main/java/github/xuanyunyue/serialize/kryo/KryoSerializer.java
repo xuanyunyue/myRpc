@@ -3,7 +3,7 @@ package github.xuanyunyue.serialize.kryo;
 import com.esotericsoftware.kryo.Kryo;
 import com.esotericsoftware.kryo.io.Input;
 import com.esotericsoftware.kryo.io.Output;
-import exception.SerializeException;
+import github.xuanyunyue.exception.SerializeException;
 import github.xuanyunyue.remoting.dto.RPCRequest;
 import github.xuanyunyue.remoting.dto.RPCResponse;
 import github.xuanyunyue.serialize.Serializer;

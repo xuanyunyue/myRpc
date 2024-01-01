@@ -3,7 +3,7 @@ package github.xuanyunyue.config;
 import github.xuanyunyue.registry.zookeeper.util.CuratorUtils;
 import github.xuanyunyue.remoting.transport.netty.server.NettyServer;
 import lombok.extern.slf4j.Slf4j;
-import utils.concurrent.threadpool.ThreadPoolFactory;
+import github.xuanyunyue.utils.concurrent.threadpool.ThreadPoolFactory;
 
 import java.net.InetAddress;
 import java.net.InetSocketAddress;

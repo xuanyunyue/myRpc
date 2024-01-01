@@ -1,8 +1,8 @@
 package github.xuanyunyue.spring;
 
-import enums.TransportEnum;
-import extension.ExtensionLoader;
-import factory.SingletonFactory;
+import github.xuanyunyue.enums.TransportEnum;
+import github.xuanyunyue.extension.ExtensionLoader;
+import github.xuanyunyue.factory.SingletonFactory;
 import github.xuanyunyue.annotations.RPCReference;
 import github.xuanyunyue.annotations.RPCService;
 import github.xuanyunyue.config.RPCServiceConfig;
@@ -14,6 +14,7 @@ import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanPostProcessor;
+import org.springframework.stereotype.Component;
 
 import java.lang.reflect.Field;
 
@@ -23,6 +24,7 @@ import java.lang.reflect.Field;
  * @description：TODO
  */
 @Slf4j
+@Component
 public class SpringBeanPostProcessor implements BeanPostProcessor {
     private final ServiceProvider serviceProvider;
     private final SendRequest rpcClient;

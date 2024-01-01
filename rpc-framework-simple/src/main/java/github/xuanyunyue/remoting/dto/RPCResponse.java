@@ -1,6 +1,6 @@
 package github.xuanyunyue.remoting.dto;
 
-import enums.RPCResponseCodeEnum;
+import github.xuanyunyue.enums.RPCResponseCodeEnum;
 import lombok.*;
 
 import java.io.Serializable;

@@ -1,6 +1,6 @@
 package github.xuanyunyue.remoting.transport;
 
-import extension.SPI;
+import github.xuanyunyue.extension.SPI;
 import github.xuanyunyue.remoting.dto.RPCRequest;
 import github.xuanyunyue.remoting.dto.RPCResponse;
 

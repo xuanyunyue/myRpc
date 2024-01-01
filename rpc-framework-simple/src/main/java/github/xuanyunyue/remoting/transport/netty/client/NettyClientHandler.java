@@ -1,8 +1,8 @@
 package github.xuanyunyue.remoting.transport.netty.client;
 
-import enums.CompressTypeEnum;
-import enums.SerializationTypeEnum;
-import factory.SingletonFactory;
+import github.xuanyunyue.enums.CompressTypeEnum;
+import github.xuanyunyue.enums.SerializationTypeEnum;
+import github.xuanyunyue.factory.SingletonFactory;
 import github.xuanyunyue.remoting.constants.RPCConstants;
 import github.xuanyunyue.remoting.dto.RPCMessage;
 import github.xuanyunyue.remoting.dto.RPCResponse;

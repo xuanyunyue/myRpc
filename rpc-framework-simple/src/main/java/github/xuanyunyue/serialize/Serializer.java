@@ -1,6 +1,6 @@
 package github.xuanyunyue.serialize;
 
-import extension.SPI;
+import github.xuanyunyue.extension.SPI;
 
 /**
  * @author： zyx1128

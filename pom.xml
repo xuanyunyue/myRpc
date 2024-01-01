@@ -37,6 +37,7 @@
         <module>my-client</module>
         <module>rpc-framework-simple</module>
         <module>rpc-framework-common</module>
+        <module>example-api</module>
     </modules>
     <dependencies>
         <!-- lombok -->
